@@ -1,9 +1,15 @@
 import React from "react";
+import {Routes, Route} from "react-router-dom";
+import {Inicio} from "./Inicio";
+import {ProductosLista} from "./productos/index";
 
 export const Paginas = () => {
     return (
-        <div>
-            <h1>Páginas</h1>
-        </div>
+        <section>
+            <Routes>
+                <Route path="/" element={<Inicio />} />   
+                <Route path="/productos" element={<ProductosLista />} /> 
+            </Routes>
+        </section>
     )
 }
