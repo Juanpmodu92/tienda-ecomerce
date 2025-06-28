@@ -1,8 +1,8 @@
 import React from 'react';
-import { Header } from "./components/Header";
+import { Header } from "./components/Header/index.js";
 import 'boxicons';
 import {BrowserRouter as Router} from "react-router-dom";
-import { Paginas } from './components/Paginas';
+import { Paginas } from './components/paginas';
 import {DataProvider} from "./context/Dataprovider.js";
 
 function App() {
