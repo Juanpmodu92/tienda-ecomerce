@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header } from './components/Header/index';
+import { Header } from './components/header/index';
 import 'boxicons';
 import {BrowserRouter as Router} from "react-router-dom";
 import { Paginas } from './components/paginas';
