@@ -16,19 +16,19 @@ export const Carrito = () => {
   const show2 = menu ? "carrito show" : "carrito";
 
 
-  const resta = id =>{
-    carrito.forEach(item=>{
-      if(item.id === id){
+  const resta = id => {
+    carrito.forEach(item => {
+      if (item.id === id) {
         item.cantidad === 1 ? item.cantidad = 1 : item.cantidad -= 1;
       }
       setCarrito([...carrito]);
     })
   }
 
-  const suma = id =>{
-    carrito.forEach(item=>{
-      if(item.id === id){
-        item.cantidad +=1;
+  const suma = id => {
+    carrito.forEach(item => {
+      if (item.id === id) {
+        item.cantidad += 1;
       }
       setCarrito([...carrito]);
     })
@@ -37,14 +37,14 @@ export const Carrito = () => {
   const removeProducto = (id) => () => {
     if (window.confirm("¿Estás seguro de eliminar este producto?")) {
       carrito.forEach((item, index) => {
-      if (item.id === id) {
-        item.cantidad = 1;
-        carrito.splice(index, 1);
-      }
-    });
+        if (item.id === id) {
+          item.cantidad = 1;
+          carrito.splice(index, 1);
+        }
+      });
       setCarrito([...carrito]);
+    }
   }
-}
 
   return (
     <div className={show1}>
@@ -58,31 +58,31 @@ export const Carrito = () => {
 
 
         <div className="carrito__center">
-        {
+          {
 
-          carrito.length === 0 ? <h2 style={{
-            textAlign: "center",fontSize: "3rem"
-          }}>No hay productos en el carrito</h2> :<>
-        {
-          carrito.map((producto) => (
-          <div className="carrito__item" key={producto.id}>
-            <img src={producto.image} alt='' />
-            <div>
-              <h3>{producto.title}</h3>
-              <p className="price">${producto.price}</p>
-            </div>
-            <div>
-              <box-icon name="up-arrow" type="solid" onClick={() => suma(producto.id)}></box-icon>
-              <p className="cantidad">{producto.cantidad}</p>
-              <box-icon name="down-arrow" type="solid" onClick={() => resta(producto.id)}></box-icon>
-            </div>
-            <div className="remove__item" onClick={removeProducto(producto.id)}>
-              <box-icon name='trash'></box-icon>
-            </div>
-          </div>
-        ))
-        }
-        </>}
+            carrito.length === 0 ? <h2 style={{
+              textAlign: "center", fontSize: "3rem"
+            }}>No hay productos en el carrito</h2> : <>
+              {
+                carrito.map((producto) => (
+                  <div className="carrito__item" key={producto.id}>
+                    <img src={producto.image} alt='' />
+                    <div>
+                      <h3>{producto.title}</h3>
+                      <p className="price">${producto.price}</p>
+                    </div>
+                    <div>
+                      <box-icon name="up-arrow" type="solid" onClick={() => suma(producto.id)}></box-icon>
+                      <p className="cantidad">{producto.cantidad}</p>
+                      <box-icon name="down-arrow" type="solid" onClick={() => resta(producto.id)}></box-icon>
+                    </div>
+                    <div className="remove__item" onClick={removeProducto(producto.id)}>
+                      <box-icon name='trash'></box-icon>
+                    </div>
+                  </div>
+                ))
+              }
+            </>}
         </div>
 
         <div className="carrito__footer">

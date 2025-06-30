@@ -13,9 +13,9 @@ export const ProductosLista = () => {
         <>
             <h1 className="title">PRODUCTOS</h1>
             <div className="productos">
-                {
-                productos.map(producto => (
-                    <ProductoItems key={producto.id} 
+                {productos.map(producto => (
+                    <ProductoItems 
+                    key={producto.id} 
                     id={producto.id}
                     title={producto.title}
                     price={producto.price}
